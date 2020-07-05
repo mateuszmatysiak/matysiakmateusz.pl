@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import Hero from '../components/Hero';
 import Projects from '../components/Projects';
 import Skills from '../components/Skills';
+import Contact from '../components/Contact';
+import Footer from '../components/Footer';
 
 const StyledPage = styled.main`
   margin: 35px;
@@ -13,7 +15,9 @@ const HomePage = ({ data }) => {
     <StyledPage>
       <Hero />
       <Projects {...data.allDatoCmsProject} />
-      <Skills />
+      <Skills {...data.allDatoCmsSkill} />
+      <Contact />
+      <Footer />
     </StyledPage>
   );
 };
@@ -28,6 +32,15 @@ export const query = graphql`
           title
           tags {
             name
+          }
+        }
+      }
+    }
+    allDatoCmsSkill {
+      edges {
+        node {
+          skills {
+            skill
           }
         }
       }
