@@ -39,8 +39,9 @@ const StyledSocialItem = styled.a`
   flex: 1 1;
 `;
 
-const StyledSocialParagraph = styled.p`
+const StyledSocialSpan = styled.span`
   margin: 0 5px 0 10px;
+  font-size: 1.2rem;
 `;
 
 const StyledSocialImg = styled.img`
@@ -71,14 +72,14 @@ const Hero = () => {
         <StyledSocialWrapper>
           <StyledSocialImg src={profile} />
           <StyledSocialItem href="https://www.linkedin.com/in/mateusz-matysiak/">
-            <StyledSocialIcon src={linkedin} />
-            <StyledSocialParagraph>Linkedin</StyledSocialParagraph>
-            <StyledSocialIcon src={open} />
+            <StyledSocialIcon src={linkedin} alt="Linkedin" />
+            <StyledSocialSpan>Linkedin</StyledSocialSpan>
+            <StyledSocialIcon src={open} alt="Open" />
           </StyledSocialItem>
           <StyledSocialItem href="https://github.com/mateuszmatysiak">
-            <StyledSocialIcon src={github} />
-            <StyledSocialParagraph>Github</StyledSocialParagraph>
-            <StyledSocialIcon src={open} />
+            <StyledSocialIcon src={github} alt="Github" />
+            <StyledSocialSpan>Github</StyledSocialSpan>
+            <StyledSocialIcon src={open} alt="Open" />
           </StyledSocialItem>
         </StyledSocialWrapper>
       </StyledSocialContainer>

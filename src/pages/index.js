@@ -28,7 +28,8 @@ export const query = graphql`
       edges {
         node {
           description
-          href
+          hrefGithub
+          hrefLive
           title
           tags {
             name
