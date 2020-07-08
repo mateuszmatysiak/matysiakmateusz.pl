@@ -21,9 +21,15 @@ const StyledParagraphLink = styled.a`
   text-decoration: underline;
 `;
 
-const StyledSocialWrapper = styled.div`
+const StyledSocialContainer = styled.div`
   display: flex;
   margin-top: 30px;
+`;
+
+const StyledSocialWrapper = styled.div`
+  display: flex;
+  flex: 1 1;
+  max-width: 305px;
 `;
 
 const StyledSocialItem = styled.a`
@@ -61,19 +67,21 @@ const Hero = () => {
         <StyledParagraphLink href="https://reactjs.org/">React</StyledParagraphLink>. Poza pracą
         tworzę projekty, w których wykorzystuję wiedzę z szeroko pojętego ekosystemu front-endu.
       </StyledParagraph>
-      <StyledSocialWrapper>
-        <StyledSocialImg src={profile} />
-        <StyledSocialItem href="https://www.linkedin.com/in/mateusz-matysiak/">
-          <StyledSocialIcon src={linkedin} />
-          <StyledSocialParagraph>Linkedin</StyledSocialParagraph>
-          <StyledSocialIcon src={open} />
-        </StyledSocialItem>
-        <StyledSocialItem href="https://github.com/mateuszmatysiak">
-          <StyledSocialIcon src={github} />
-          <StyledSocialParagraph>Github</StyledSocialParagraph>
-          <StyledSocialIcon src={open} />
-        </StyledSocialItem>
-      </StyledSocialWrapper>
+      <StyledSocialContainer>
+        <StyledSocialWrapper>
+          <StyledSocialImg src={profile} />
+          <StyledSocialItem href="https://www.linkedin.com/in/mateusz-matysiak/">
+            <StyledSocialIcon src={linkedin} />
+            <StyledSocialParagraph>Linkedin</StyledSocialParagraph>
+            <StyledSocialIcon src={open} />
+          </StyledSocialItem>
+          <StyledSocialItem href="https://github.com/mateuszmatysiak">
+            <StyledSocialIcon src={github} />
+            <StyledSocialParagraph>Github</StyledSocialParagraph>
+            <StyledSocialIcon src={open} />
+          </StyledSocialItem>
+        </StyledSocialWrapper>
+      </StyledSocialContainer>
     </section>
   );
 };
