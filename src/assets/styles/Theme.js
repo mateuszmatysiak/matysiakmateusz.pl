@@ -12,11 +12,11 @@ const theme = {
     },
   },
   breakpoints: {
-    xs: '360px',
-    sm: '768px',
-    md: '1024px',
-    lg: '1440px',
-    xl: '1920px',
+    xs: 360,
+    sm: 768,
+    md: 1024,
+    lg: 1440,
+    xl: 1920,
   },
 };
 
