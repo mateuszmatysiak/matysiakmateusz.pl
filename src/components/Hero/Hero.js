@@ -4,9 +4,14 @@ import profile from '../../assets/images/profile.jpg';
 import github from '../../assets/images/github.svg';
 import linkedin from '../../assets/images/linkedin.svg';
 import open from '../../assets/images/open.svg';
+import breakpoint from 'styled-components-breakpoint';
 
 const StyledH1 = styled.h1`
   font-size: 3.2rem;
+
+  ${breakpoint('sm')`
+    font-size: 4.2rem;
+  `}
 `;
 
 const StyledParagraph = styled.p`

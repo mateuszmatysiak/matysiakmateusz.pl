@@ -3,23 +3,22 @@ import styled from 'styled-components';
 import SectionHeader from '../SectionHeader';
 import SectionWrapper from '../SectionWrapper';
 import arrow from '../../assets/images/arrow.svg';
-
-const dummyData = [
-  { name: 'Email', value: 'mateuszmatysiak96@gmail.com' },
-  { name: 'Telefon', value: '662 365 914' },
-  { name: 'Twitter', value: '@matys0' },
-];
+import breakpoint from 'styled-components-breakpoint';
 
 const StyledContactWrapper = styled.div`
-  position: relative;
-  height: 82px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 12px;
-  letter-spacing: 2px;
-  margin-bottom: 5px;
-  background-color: ${({ theme }) => theme.palette.black.light};
+    position: relative;
+    height: 82px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    background-color: #202022;
+
+    &:nth-child(odd) {
+      background-color: #1D1D1F;
+    }
 
   &:hover:after {
     content: '${({ value }) => value}';
@@ -31,7 +30,6 @@ const StyledContactWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 3;
   }
   &:hover:before {
     content: "";
@@ -42,8 +40,33 @@ const StyledContactWrapper = styled.div`
     right: 0;
     background-color: ${({ theme }) => theme.palette.black.dark};
     border: ${({ theme }) => `1px solid ${theme.palette.black.light}`};
-    z-index: 2;
   }
+
+  &:hover img {
+    transform: rotate(180deg);
+  }
+
+  ${breakpoint('sm')`
+    flex-direction: column;
+
+    &:hover:before {
+      display: none;
+    }
+
+    &:after,
+    &:hover:after {
+      content: '${({ value }) => value}';
+      position: relative;
+      font-weight: 700;
+      font-size: 1.4rem;
+      letter-spacing: 3px;
+      margin-top: 15px;
+    }
+  `}
+`;
+
+const StyledContactTitle = styled.p`
+  font-size: 1.4rem;
 `;
 
 const StyledContactIcon = styled.img`
@@ -51,21 +74,25 @@ const StyledContactIcon = styled.img`
   position: absolute;
   top: 5px;
   right: 5px;
-  z-index: 1;
+  transition: transform .3s;
+
+  ${breakpoint('sm')`
+    display: none;
+  `}
 `;
 
-const Skills = (data) => {
+const Contact = (data) => {
   return (
     <SectionWrapper>
       <SectionHeader>Kontakt</SectionHeader>
-      {dummyData.map(({ name, value }) => (
+      {data.edges.map(({ node: { name, value } }) => (
         <StyledContactWrapper value={value} key={name}>
           <StyledContactIcon src={arrow} />
-          {name}
+          <StyledContactTitle>{name}</StyledContactTitle>
         </StyledContactWrapper>
       ))}
     </SectionWrapper>
   );
 };
 
-export default Skills;
+export default Contact;

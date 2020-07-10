@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StyledFooter = styled.section`
+const StyledFooter = styled.footer`
   margin-top: 50px;
 `;
 

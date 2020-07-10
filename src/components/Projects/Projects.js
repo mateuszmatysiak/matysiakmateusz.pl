@@ -4,7 +4,7 @@ import SectionHeader from '../SectionHeader';
 import SectionWrapper from '../SectionWrapper';
 import open from '../../assets/images/open.svg';
 
-const StyledProjectWrapper = styled.a`
+const StyledProjectWrapper = styled.div`
   display: block;
   min-height: 186px;
   background: ${({ theme }) => theme.palette.black.light};
