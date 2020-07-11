@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import SectionHeader from '../SectionHeader';
 import SectionWrapper from '../SectionWrapper';
 import open from '../../assets/images/open.svg';
+import breakpoint from 'styled-components-breakpoint';
 
 const StyledProjectWrapper = styled.div`
   display: block;
@@ -10,6 +11,19 @@ const StyledProjectWrapper = styled.div`
   background: ${({ theme }) => theme.palette.black.light};
   margin-bottom: 5px;
   padding: 30px;
+  border-radius: 3px;
+
+  ${breakpoint('md')`
+    transition: transform .3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  `}
+
+  ${breakpoint('lg')`
+    margin-bottom: 10px;
+  `}
 `;
 
 const StyledProjectTagWrapper = styled.div`
@@ -32,7 +46,7 @@ const StyledProjectTitle = styled.h3`
 `;
 
 const StyledProjectDescription = styled.p`
-  font-size: 14px;
+  font-size: 1.4rem;
   color: ${({ theme }) => theme.palette.grey};
 `;
 
@@ -69,12 +83,12 @@ const Projects = (data) => (
         <StyledProjectTitle>{title}</StyledProjectTitle>
         <StyledProjectDescription>{description}</StyledProjectDescription>
         <StyledLinkWrapper>
-          <StyledLinkItem href={hrefGithub}>
+          <StyledLinkItem href={hrefGithub} target="_blank">
             <StyledLinkSpan>Github</StyledLinkSpan>
             <StyledLinkIcon src={open} />
           </StyledLinkItem>
           {hrefLive ? (
-            <StyledLinkItem href={hrefLive}>
+            <StyledLinkItem href={hrefLive} target="_blank">
               <StyledLinkSpan>Live</StyledLinkSpan>
               <StyledLinkIcon src={open} />
             </StyledLinkItem>

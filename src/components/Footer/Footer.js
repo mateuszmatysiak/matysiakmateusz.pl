@@ -6,7 +6,7 @@ const StyledFooter = styled.footer`
 `;
 
 const StyledFooterParagraph = styled.p`
-  font-size: 14px;
+  font-size: 1.2rem;
   color: ${({ theme }) => theme.palette.grey};
 `;
 
@@ -20,7 +20,7 @@ const Footer = () => {
     <StyledFooter>
       <StyledFooterParagraph>
         Strona stworzona w{' '}
-        <StyledFooterParagraphLink href="https://www.gatsbyjs.org/">
+        <StyledFooterParagraphLink href="https://www.gatsbyjs.org/" target="_blank">
           Gatsby
         </StyledFooterParagraphLink>
         .

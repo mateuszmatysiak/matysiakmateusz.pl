@@ -12,11 +12,13 @@ const theme = {
     },
   },
   breakpoints: {
+    xxs: 0,
     xs: 360,
     sm: 768,
     md: 1024,
-    lg: 1440,
-    xl: 1920,
+    lg: 1280,
+    xl: 1440,
+    xxl: 1920,
   },
 };
 

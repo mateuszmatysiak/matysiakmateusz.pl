@@ -2,13 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 import SectionHeader from '../SectionHeader';
 import SectionWrapper from '../SectionWrapper';
+import breakpoint from 'styled-components-breakpoint';
 
 const StyledSkillsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   height: 177px;
   margin-bottom: 5px;
-  background-color: ${({ theme }) => theme.palette.black.normal};
+
+  ${breakpoint('lg')`
+    height: 400px;
+    background-color: unset;
+    margin-bottom: unset;
+  `}
 `;
 
 const StyledSkillsItem = styled.div`
@@ -16,10 +22,28 @@ const StyledSkillsItem = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 14px;
+  font-size: 1.4rem;
   letter-spacing: 4px;
+  background-color: ${({ theme }) => theme.palette.black.normal};
+  border-radius: 3px;
 
   ${({ childIndex, theme }) => getBackgroundColor(childIndex, theme)}
+
+  ${breakpoint('lg')`
+    flex: auto;
+    width: calc(50% - 10px);
+    margin: 5px;
+    font-size: 1.8rem;
+
+    &:nth-child(odd) {
+      transform: translateY(-10px);
+      margin: 5px 5px 5px 0;
+    }
+
+    &:nth-child(even) {
+      margin: 5px 0 5px 5px;
+    }
+  `}
 `;
 
 function getBackgroundColor(childIndex, theme) {
