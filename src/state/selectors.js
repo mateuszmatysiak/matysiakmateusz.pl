@@ -1,0 +1,1 @@
+export const sectionRefsSelector = (state) => state.app.sectionRefs;
