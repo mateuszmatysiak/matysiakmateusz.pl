@@ -1,6 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState, useEffect } from 'react';
+import styled, { css } from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
+import { sectionRefsSelector } from '../../state/selectors';
+import { useSelector } from 'react-redux';
+import { useWindowScroll } from 'react-use';
+import { NAVIGATION } from '../../utils/navigation';
 
 const StyledNavigation = styled.nav`
   ${breakpoint('xxs', 'md')`
@@ -18,10 +22,24 @@ const StyledNavigationListItemLink = styled.a`
   display: flex;
   align-items: center;
   cursor: pointer;
-
+  ${({ theme, activeTab, section }) =>
+    section === activeTab
+      ? css`
+          color: ${theme.palette.white};
+          & span:nth-child(2) {
+            width: 50px;
+            background-color: ${theme.palette.white};
+          }
+        `
+      : css`
+          color: ${theme.palette.grey};
+          & span:nth-child(2) {
+            width: 25px;
+            background-color: ${theme.palette.grey};
+          }
+        `}
   &:hover span {
     color: ${({ theme }) => theme.palette.white};
-
     &:nth-child(2) {
       width: 50px;
       background-color: ${({ theme }) => theme.palette.white};
@@ -30,7 +48,6 @@ const StyledNavigationListItemLink = styled.a`
 `;
 
 const StyledNavigationSpan = styled.span`
-  color: ${({ theme }) => theme.palette.grey};
   font-size: 1.2rem;
   text-transform: uppercase;
   transition: all .3s ease-in-out;
@@ -40,35 +57,47 @@ const StyledNavigationSpan = styled.span`
     width: 25px;
     height: 1px;
     margin: 0 20px;
-    background-color: ${({ theme }) => theme.palette.grey};
   }
 `;
 
 const Navigation = () => {
+  const sectionRefs = useSelector(sectionRefsSelector);
+  const [activeTab, setActiveTab] = useState('projects');
+  const { y: scrollHeight } = useWindowScroll();
+
+  const handleChangeActiveTab = (section) => {
+    setActiveTab(section);
+    sectionRefs[section].current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  };
+
+  useEffect(() => {
+    if (scrollHeight < 600) {
+      setActiveTab('projects');
+    } else if (scrollHeight > 600 && scrollHeight < 1550) {
+      setActiveTab('skills');
+    } else if (scrollHeight > 1550) {
+      setActiveTab('contact');
+    }
+  }, [scrollHeight]);
+
   return (
     <StyledNavigation>
       <ul>
-        <StyledNavigationListItem>
-          <StyledNavigationListItemLink>
-            <StyledNavigationSpan>01</StyledNavigationSpan>
-            <StyledNavigationSpan></StyledNavigationSpan>
-            <StyledNavigationSpan>Projekty</StyledNavigationSpan>
-          </StyledNavigationListItemLink>
-        </StyledNavigationListItem>
-        <StyledNavigationListItem>
-          <StyledNavigationListItemLink>
-            <StyledNavigationSpan>02</StyledNavigationSpan>
-            <StyledNavigationSpan></StyledNavigationSpan>
-            <StyledNavigationSpan>Umiejętności</StyledNavigationSpan>
-          </StyledNavigationListItemLink>
-        </StyledNavigationListItem>
-        <StyledNavigationListItem>
-          <StyledNavigationListItemLink>
-            <StyledNavigationSpan>03</StyledNavigationSpan>
-            <StyledNavigationSpan></StyledNavigationSpan>
-            <StyledNavigationSpan>Kontakt</StyledNavigationSpan>
-          </StyledNavigationListItemLink>
-        </StyledNavigationListItem>
+        {NAVIGATION.map(({ name, value }, index) => {
+          const tabIndex = `0${index + 1}`;
+          return (
+            <StyledNavigationListItem key={value} onClick={() => handleChangeActiveTab(value)}>
+              <StyledNavigationListItemLink section={value} activeTab={activeTab}>
+                <StyledNavigationSpan>{tabIndex}</StyledNavigationSpan>
+                <StyledNavigationSpan></StyledNavigationSpan>
+                <StyledNavigationSpan>{name}</StyledNavigationSpan>
+              </StyledNavigationListItemLink>
+            </StyledNavigationListItem>
+          );
+        })}
       </ul>
     </StyledNavigation>
   );

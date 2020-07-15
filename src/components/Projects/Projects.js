@@ -71,7 +71,7 @@ const StyledLinkIcon = styled.img`
 `;
 
 const Projects = (data) => (
-  <SectionWrapper>
+  <SectionWrapper id="projects">
     <SectionHeader>Projekty</SectionHeader>
     {data.edges.map(({ node: { title, description, hrefGithub, hrefLive, tags } }) => (
       <StyledProjectWrapper key={title}>

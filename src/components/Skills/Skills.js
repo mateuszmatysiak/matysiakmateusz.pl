@@ -10,7 +10,7 @@ const StyledSkillsWrapper = styled.div`
   height: 177px;
   margin-bottom: 5px;
 
-  ${breakpoint('lg')`
+  ${breakpoint('md')`
     height: 400px;
     background-color: unset;
     margin-bottom: unset;
@@ -29,7 +29,7 @@ const StyledSkillsItem = styled.div`
 
   ${({ childIndex, theme }) => getBackgroundColor(childIndex, theme)}
 
-  ${breakpoint('lg')`
+  ${breakpoint('md')`
     flex: auto;
     width: calc(50% - 10px);
     margin: 5px;
@@ -63,7 +63,7 @@ function getBackgroundColor(childIndex, theme) {
 
 const Skills = (data) => {
   return (
-    <SectionWrapper>
+    <SectionWrapper id="skills">
       <SectionHeader>Umiejętności</SectionHeader>
       {data.edges.map(({ node: { skills } }, index) => (
         <StyledSkillsWrapper key={index}>
