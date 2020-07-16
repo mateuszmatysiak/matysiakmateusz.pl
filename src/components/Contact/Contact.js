@@ -6,6 +6,18 @@ import breakpoint from 'styled-components-breakpoint';
 import { getTooltip, getTooltipMessage } from '../../utils/tooltip';
 import { getAction } from '../../utils/action';
 
+const StyledContactContainer = styled.div`
+  ${breakpoint('md')`
+    &:hover > a {
+      opacity: 0.5;
+    }
+
+    &:hover > a:hover {
+      opacity: 1;
+    }
+  `}
+`;
+
 const StyledContactWrapper = styled.a`
   position: relative;
   flex-direction: column;
@@ -26,6 +38,11 @@ const StyledContactWrapper = styled.a`
 
   ${breakpoint('md')`
     margin-bottom: 10px;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   `}
 `;
 
@@ -56,17 +73,19 @@ const Contact = (data) => {
   return (
     <SectionWrapper id="contact">
       <SectionHeader>Kontakt</SectionHeader>
-      {data.edges.map(({ node: { name, value } }) => (
-        <StyledContactWrapper
-          key={name}
-          href={`${getAction(name)}${value}`}
-          title={getTooltipMessage(name)}
-          target="_blank"
-        >
-          <StyledContactTitle>{name}</StyledContactTitle>
-          <StyledContactSubtitle>{value}</StyledContactSubtitle>
-        </StyledContactWrapper>
-      ))}
+      <StyledContactContainer>
+        {data.edges.map(({ node: { name, value } }) => (
+          <StyledContactWrapper
+            key={name}
+            href={`${getAction(name)}${value}`}
+            title={getTooltipMessage(name)}
+            target="_blank"
+          >
+            <StyledContactTitle>{name}</StyledContactTitle>
+            <StyledContactSubtitle>{value}</StyledContactSubtitle>
+          </StyledContactWrapper>
+        ))}
+      </StyledContactContainer>
     </SectionWrapper>
   );
 };

@@ -5,6 +5,18 @@ import SectionWrapper from '../SectionWrapper';
 import open from '../../assets/images/open.svg';
 import breakpoint from 'styled-components-breakpoint';
 
+const StyledProjectContainer = styled.div`
+  ${breakpoint('md')`
+    &:hover > div {
+      opacity: 0.5;
+    }
+
+    &:hover > div:hover {
+      opacity: 1;
+    }
+  `}
+`;
+
 const StyledProjectWrapper = styled.div`
   display: block;
   min-height: 186px;
@@ -14,7 +26,7 @@ const StyledProjectWrapper = styled.div`
   border-radius: 3px;
 
   ${breakpoint('md')`
-    transition: transform .3s ease-in-out;
+    transition: all .2s ease-in-out;
 
     &:hover {
       transform: scale(1.1);
@@ -73,29 +85,31 @@ const StyledLinkIcon = styled.img`
 const Projects = (data) => (
   <SectionWrapper id="projects">
     <SectionHeader>Projekty</SectionHeader>
-    {data.edges.map(({ node: { title, description, hrefGithub, hrefLive, tags } }) => (
-      <StyledProjectWrapper key={title}>
-        <StyledProjectTagWrapper>
-          {tags.map(({ name }) => (
-            <StyledProjectTag key={name}>{name}</StyledProjectTag>
-          ))}
-        </StyledProjectTagWrapper>
-        <StyledProjectTitle>{title}</StyledProjectTitle>
-        <StyledProjectDescription>{description}</StyledProjectDescription>
-        <StyledLinkWrapper>
-          <StyledLinkItem href={hrefGithub} target="_blank">
-            <StyledLinkSpan>Github</StyledLinkSpan>
-            <StyledLinkIcon src={open} />
-          </StyledLinkItem>
-          {hrefLive ? (
-            <StyledLinkItem href={hrefLive} target="_blank">
-              <StyledLinkSpan>Live</StyledLinkSpan>
+    <StyledProjectContainer>
+      {data.edges.map(({ node: { title, description, hrefGithub, hrefLive, tags } }) => (
+        <StyledProjectWrapper key={title}>
+          <StyledProjectTagWrapper>
+            {tags.map(({ name }) => (
+              <StyledProjectTag key={name}>{name}</StyledProjectTag>
+            ))}
+          </StyledProjectTagWrapper>
+          <StyledProjectTitle>{title}</StyledProjectTitle>
+          <StyledProjectDescription>{description}</StyledProjectDescription>
+          <StyledLinkWrapper>
+            <StyledLinkItem href={hrefGithub} target="_blank">
+              <StyledLinkSpan>Github</StyledLinkSpan>
               <StyledLinkIcon src={open} />
             </StyledLinkItem>
-          ) : null}
-        </StyledLinkWrapper>
-      </StyledProjectWrapper>
-    ))}
+            {hrefLive ? (
+              <StyledLinkItem href={hrefLive} target="_blank">
+                <StyledLinkSpan>Live</StyledLinkSpan>
+                <StyledLinkIcon src={open} />
+              </StyledLinkItem>
+            ) : null}
+          </StyledLinkWrapper>
+        </StyledProjectWrapper>
+      ))}
+    </StyledProjectContainer>
   </SectionWrapper>
 );
 
