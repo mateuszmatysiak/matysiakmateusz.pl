@@ -13,9 +13,14 @@ const StyledNavigation = styled.nav`
   margin-top: 50px;
 `;
 
+const StyledNavigationList = styled.ul`
+  display: flex;
+  flex-direction: column;
+`;
+
 const StyledNavigationListItem = styled.li`
   display: flex;
-  margin: 30px 0;
+  margin: 15px 0;
 `;
 
 const StyledNavigationListItemLink = styled.a`
@@ -25,24 +30,24 @@ const StyledNavigationListItemLink = styled.a`
   ${({ theme, activeTab, section }) =>
     section === activeTab
       ? css`
-          color: ${theme.palette.white};
+          color: ${theme.palette.primary};
           & span:nth-child(2) {
             width: 50px;
-            background-color: ${theme.palette.white};
+            background-color: ${theme.palette.primary};
           }
         `
       : css`
-          color: ${theme.palette.grey};
+          color: ${theme.palette.secondary};
           & span:nth-child(2) {
             width: 25px;
-            background-color: ${theme.palette.grey};
+            background-color: ${theme.palette.secondary};
           }
         `}
   &:hover span {
-    color: ${({ theme }) => theme.palette.white};
+    color: ${({ theme }) => theme.palette.primary};
     &:nth-child(2) {
       width: 50px;
-      background-color: ${({ theme }) => theme.palette.white};
+      background-color: ${({ theme }) => theme.palette.primary};
     }
   }
 `;
@@ -50,7 +55,7 @@ const StyledNavigationListItemLink = styled.a`
 const StyledNavigationSpan = styled.span`
   font-size: 1.2rem;
   text-transform: uppercase;
-  transition: all .3s ease-in-out;
+  transition: background-color 0.3s ease-in-out, width 0.3s ease-in-out;
 
   &:nth-child(2) {
     display: block;
@@ -85,7 +90,7 @@ const Navigation = () => {
 
   return (
     <StyledNavigation>
-      <ul>
+      <StyledNavigationList>
         {NAVIGATION.map(({ name, value }, index) => {
           const tabIndex = `0${index + 1}`;
           return (
@@ -98,7 +103,7 @@ const Navigation = () => {
             </StyledNavigationListItem>
           );
         })}
-      </ul>
+      </StyledNavigationList>
     </StyledNavigation>
   );
 };

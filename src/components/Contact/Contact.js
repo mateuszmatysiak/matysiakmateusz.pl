@@ -27,18 +27,18 @@ const StyledContactWrapper = styled.a`
   align-items: center;
   letter-spacing: 2px;
   margin-bottom: 5px;
-  background-color: ${({ theme }) => theme.palette.black.light};
+  background-color: ${({ theme }) => theme.palette.light};
   border-radius: 3px;
   cursor: pointer;
   ${getTooltip()}
 
   &:nth-child(odd) {
-    background-color: ${({ theme }) => theme.palette.black.normal};
+    background-color: ${({ theme }) => theme.palette.normal};
   }
 
   ${breakpoint('md')`
     margin-bottom: 10px;
-    transition: all .2s ease-in-out;
+    transition: transform .2s ease-in-out, opacity .2s ease-in-out;
 
     &:hover {
       transform: scale(1.1);
@@ -48,7 +48,7 @@ const StyledContactWrapper = styled.a`
 
 const StyledContactTitle = styled.p`
   font-size: 1.2rem;
-  color: ${({ theme }) => theme.palette.grey};
+  color: ${({ theme }) => theme.palette.secondary};
 
   ${breakpoint('sm')`
     font-size: 1.4rem;

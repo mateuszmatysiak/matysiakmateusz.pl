@@ -26,7 +26,7 @@ const StyledSkillsWrapper = styled.div`
     height: 400px;
     background-color: unset;
     margin-bottom: unset;
-    transition: all .2s ease-in-out;
+    transition: transform .2s ease-in-out, opacity .2s ease-in-out;
 
     &:hover > div {
       opacity: .5;
@@ -45,7 +45,7 @@ const StyledSkillsItem = styled.div`
   align-items: center;
   font-size: 1.4rem;
   letter-spacing: 4px;
-  background-color: ${({ theme }) => theme.palette.black.normal};
+  background-color: ${({ theme }) => theme.palette.normal};
   border-radius: 3px;
   cursor: default;
 
@@ -56,7 +56,7 @@ const StyledSkillsItem = styled.div`
     width: calc(50% - 10px);
     margin: 5px;
     font-size: 1.8rem;
-    transition: all .2s ease-in-out;
+    transition: transform .2s ease-in-out, opacity .2s ease-in-out;
 
     &:hover,
     &:nth-child(odd):hover {
@@ -78,13 +78,13 @@ function getBackgroundColor(childIndex, theme) {
   if (childIndex % 2 === 0) {
     return `
       &:not(:nth-child(3n+1)) {
-        background-color: ${theme.palette.black.light};
+        background-color: ${theme.palette.light};
       }
     `;
   } else
     return `
       &:nth-child(3n+1) {
-      background-color: ${theme.palette.black.light};
+      background-color: ${theme.palette.light};
       }
     `;
 }

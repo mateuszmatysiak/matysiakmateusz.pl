@@ -1,11 +1,16 @@
 import React from 'react';
-import styled from 'styled-components';
-import profile from '../../assets/images/profile.jpg';
-import github from '../../assets/images/github.svg';
-import linkedin from '../../assets/images/linkedin.svg';
-import open from '../../assets/images/open.svg';
+import styled, { css } from 'styled-components';
+import GithubIcon from '../../assets/images/github.svg';
+import LinkedinIcon from '../../assets/images/linkedin.svg';
+import ContrastIcon from '../../assets/images/contrast.svg';
+import OpenIcon from '../../assets/images/open.svg';
 import breakpoint from 'styled-components-breakpoint';
 import Navigation from '../Navigation';
+import { useSelector } from 'react-redux';
+import { themeSelector } from '../../state/selectors';
+import { useWindowSize } from 'react-use';
+import Img from 'gatsby-image';
+import Icon from '../Icon';
 
 const StyledHeroWrapper = styled.section`
   ${breakpoint('md')`
@@ -39,7 +44,7 @@ const StyledParagraph = styled.p`
   font-size: 1.4rem;
   line-height: 26px;
   margin-top: 30px;
-  color: ${({ theme }) => theme.palette.grey};
+  color: ${({ theme }) => theme.palette.secondary};
 
   ${breakpoint('lg')`
     line-height: 32px;
@@ -47,7 +52,7 @@ const StyledParagraph = styled.p`
 `;
 
 const StyledParagraphLink = styled.a`
-  color: ${({ theme }) => theme.palette.white};
+  color: ${({ theme }) => theme.palette.primary};
   text-decoration: underline;
 `;
 
@@ -64,8 +69,9 @@ const StyledSocialContainer = styled.div`
 
 const StyledSocialWrapper = styled.div`
   display: flex;
+  align-items: center;
   flex: 1 1;
-  max-width: 305px;
+  max-width: 335px;
 `;
 
 const StyledSocialItem = styled.a`
@@ -80,18 +86,44 @@ const StyledSocialSpan = styled.span`
   font-size: 1.2rem;
 `;
 
-const StyledSocialImg = styled.img`
+const StyledSocialImg = styled(Img)`
   width: 48px;
   min-height: 48px;
   margin-right: 16px;
   border-radius: 50px;
 `;
 
-const StyledSocialIcon = styled.img`
-  width: 16px;
+const StyledIcon = styled.span`
+  display: block;
+
+  ${({ mobile }) =>
+    mobile &&
+    css`
+      margin-top: 16px;
+    `}
+  &,
+  svg {
+    width: 16px;
+    height: 16px;
+    fill: ${({ theme }) => theme.palette.primary};
+    transition: fill 0.1s ease-in-out;
+
+    ${({ contrastIcon }) =>
+      contrastIcon &&
+      css`
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+      `}
+  }
 `;
 
-const Hero = () => {
+const Hero = ({ childImageSharp: { fluid } }) => {
+  const { handleChangeTheme } = useSelector(themeSelector);
+  const { width } = useWindowSize();
+  const desktop = width > 450;
+  const mobile = width < 450;
+
   return (
     <StyledHeroWrapper>
       <StyledH1>Witaj, jestem Mateusz Matysiak.</StyledH1>
@@ -101,23 +133,44 @@ const Hero = () => {
           Uniwersytecie Technologiczno-Przyrodniczym w Bydgoszczy
         </StyledParagraphLink>
         . Obecnie pracuję jako programista, tworząc oprogramowanie dla UTP w frameworku{' '}
-        <StyledParagraphLink href="https://reactjs.org/" target="_blank">React</StyledParagraphLink>. Poza pracą
-        tworzę projekty, w których wykorzystuję wiedzę z szeroko pojętego ekosystemu front-endu.
+        <StyledParagraphLink href="https://reactjs.org/" target="_blank">
+          React
+        </StyledParagraphLink>
+        . Poza pracą tworzę projekty, w których wykorzystuję wiedzę z szeroko pojętego ekosystemu
+        front-endu.
       </StyledParagraph>
       <Navigation />
+      {mobile && (
+        <Icon StyledIcon={StyledIcon} onClick={handleChangeTheme} mobile contrastIcon>
+          <ContrastIcon />
+        </Icon>
+      )}
       <StyledSocialContainer>
         <StyledSocialWrapper>
-          <StyledSocialImg src={profile} />
+          <StyledSocialImg fluid={fluid} alt="profile" />
           <StyledSocialItem href="https://www.linkedin.com/in/mateusz-matysiak/" target="_blank">
-            <StyledSocialIcon src={linkedin} alt="Linkedin" />
+            <Icon StyledIcon={StyledIcon}>
+              <LinkedinIcon />
+            </Icon>
             <StyledSocialSpan>Linkedin</StyledSocialSpan>
-            <StyledSocialIcon src={open} alt="Open" />
+            <Icon StyledIcon={StyledIcon}>
+              <OpenIcon />
+            </Icon>
           </StyledSocialItem>
           <StyledSocialItem href="https://github.com/mateuszmatysiak" target="_blank">
-            <StyledSocialIcon src={github} alt="Github" />
+            <Icon StyledIcon={StyledIcon}>
+              <GithubIcon />
+            </Icon>
             <StyledSocialSpan>Github</StyledSocialSpan>
-            <StyledSocialIcon src={open} alt="Open" />
+            <Icon StyledIcon={StyledIcon}>
+              <OpenIcon />
+            </Icon>
           </StyledSocialItem>
+          {desktop && (
+            <Icon StyledIcon={StyledIcon} onClick={handleChangeTheme} contrastIcon>
+              <ContrastIcon />
+            </Icon>
+          )}
         </StyledSocialWrapper>
       </StyledSocialContainer>
     </StyledHeroWrapper>

@@ -9,11 +9,11 @@ const StyledFooter = styled.footer`
 
 const StyledFooterParagraph = styled.p`
   font-size: 1.2rem;
-  color: ${({ theme }) => theme.palette.grey};
+  color: ${({ theme }) => theme.palette.secondary};
 `;
 
 const StyledFooterParagraphLink = styled.a`
-  color: ${({ theme }) => theme.palette.white};
+  color: ${({ theme }) => theme.palette.primary};
   text-decoration: underline;
 `;
 

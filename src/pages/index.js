@@ -19,7 +19,7 @@ const StyledPage = styled.main`
     position: fixed;
     left: 0;
     right: 0;
-    box-shadow: ${({ theme }) => `0px 10px 40px 20px ${theme.palette.black.dark}`};
+    box-shadow: ${({ theme }) => `0px 10px 40px 20px ${theme.palette.dark}`};
     z-index: 2;
   }
 
@@ -54,15 +54,17 @@ const StyledSectionsContainer = styled.div`
 
 const HomePage = ({ data }) => {
   return (
-    <StyledPage>
-      <Hero />
-      <StyledSectionsContainer>
-        <Projects {...data.allDatoCmsProject} />
-        <Skills {...data.allDatoCmsSkill} />
-        <Contact {...data.allDatoCmsContactObj} />
-        <Footer />
-      </StyledSectionsContainer>
-    </StyledPage>
+    <>
+      <StyledPage>
+        <Hero {...data.file} />
+        <StyledSectionsContainer>
+          <Projects {...data.allDatoCmsProject} />
+          <Skills {...data.allDatoCmsSkill} />
+          <Contact {...data.allDatoCmsContactObj} />
+          <Footer />
+        </StyledSectionsContainer>
+      </StyledPage>
+    </>
   );
 };
 
@@ -95,6 +97,13 @@ export const query = graphql`
         node {
           value
           name
+        }
+      }
+    }
+    file(name: { eq: "profile" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid_tracedSVG
         }
       }
     }

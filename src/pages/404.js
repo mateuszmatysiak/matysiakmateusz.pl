@@ -55,7 +55,7 @@ const StyledFooter = styled.footer`
 
 const StyledFooterItem = styled.a`
   font-size: 1.8rem;
-  color: ${({ theme }) => `${theme.palette.grey}`};
+  color: ${({ theme }) => `${theme.palette.secondary}`};
   transition: color 0.2s ease-in-out;
 
   &:hover {
