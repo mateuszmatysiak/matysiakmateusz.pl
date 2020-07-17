@@ -2,9 +2,12 @@ require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
-    title: `I like Google fonts`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `matysiakmateusz.pl`,
+    description: `Mateusz Matysiak - Frontend developer`,
+    baseUrl: 'https://www.matysiakmateusz.pl',
+    image: 'src/assets/images/profile.jpg',
+    twitterUsername: "@matys0",
+    author: `Mateusz Matysiak`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -47,8 +50,8 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#151515`,
+        theme_color: `#151515`,
         display: `minimal-ui`,
         icon: `src/assets/images/favicon.png`,
       },

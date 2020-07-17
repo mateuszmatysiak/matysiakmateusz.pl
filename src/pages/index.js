@@ -5,6 +5,7 @@ import Projects from '../components/Projects';
 import Skills from '../components/Skills';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO'
 import breakpoint from 'styled-components-breakpoint';
 import { graphql } from 'gatsby';
 
@@ -55,6 +56,7 @@ const StyledSectionsContainer = styled.div`
 const HomePage = ({ data }) => {
   return (
     <>
+      <SEO {...data.site.siteMetadata} />
       <StyledPage>
         <Hero {...data.file} />
         <StyledSectionsContainer>
@@ -105,6 +107,16 @@ export const query = graphql`
         fluid {
           ...GatsbyImageSharpFluid_tracedSVG
         }
+      }
+    }
+    site {
+      siteMetadata {
+        author
+        title
+        description
+        baseUrl
+        twitterUsername
+        image
       }
     }
   }
