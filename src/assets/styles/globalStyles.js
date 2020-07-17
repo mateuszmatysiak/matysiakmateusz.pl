@@ -14,8 +14,8 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
   body {
-    background: ${({ theme }) => theme.palette.black.dark};
-    color: ${({ theme }) => theme.palette.white};
+    background-color: ${({ theme }) => theme.palette.dark};
+    color: ${({ theme }) => theme.palette.primary};
     min-height: 100vh;
   }
   button {

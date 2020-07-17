@@ -11,16 +11,16 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-layout`,
     {
+      resolve: `gatsby-source-datocms`,
+      options: {
+        apiToken: process.env.API_KEY,
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/assets/images`,
-      },
-    },
-    {
-      resolve: `gatsby-source-datocms`,
-      options: {
-        apiToken: process.env.DATO_CMS_KEY,
       },
     },
     `gatsby-transformer-sharp`,
@@ -29,7 +29,15 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Gothic A1:400,500,700'],
+          families: ['Gothic A1:400,500,700:latin,greek', 'Arial'],
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /assets/,
         },
       },
     },
@@ -42,11 +50,8 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/assets/images/favicon.png`, // This path is relative to the root of the site.
+        icon: `src/assets/images/favicon.png`,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 };
