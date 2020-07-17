@@ -1,5 +1,6 @@
 const initialState = {
   sectionRefs: {},
+  theme: {},
 };
 
 export default (state = initialState, action) => {
@@ -12,6 +13,11 @@ export default (state = initialState, action) => {
           ...state.sectionRefs,
           [payload.id]: payload.ref,
         },
+      };
+    case 'SET_THEME':
+      return {
+        ...state,
+        theme: payload.theme,
       };
     default:
       return state;
