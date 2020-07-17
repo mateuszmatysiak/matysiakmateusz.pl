@@ -2,7 +2,7 @@ require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
-    title: `matysiakmateusz.pl`,
+    title: `Mateusz Matysiak`,
     description: `Mateusz Matysiak - Frontend developer`,
     baseUrl: 'https://www.matysiakmateusz.pl',
     image: 'src/assets/images/profile.jpg',
