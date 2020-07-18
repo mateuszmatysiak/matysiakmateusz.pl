@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { useIntersection } from 'react-use';
 import gsap from 'gsap';
@@ -25,19 +25,21 @@ const Footer = () => {
     threshold: 0.8,
   });
 
-  if (intersection && intersection?.intersectionRatio > 0.8) {
-    gsap.to('footer', { duration: 0.5, opacity: 1, y: 0, ease: 'power4.out' });
-  } else {
-    gsap.to('footer', {
-      duration: 0.5,
-      opacity: 0,
-      y: 30,
-      ease: 'power4.out',
-      stagger: {
-        amount: 0.3,
-      },
-    });
-  }
+  useEffect(() => {
+    if (intersection && intersection?.intersectionRatio > 0.8) {
+      gsap.to('footer', { duration: 0.5, opacity: 1, y: 0, ease: 'power4.out' });
+    } else {
+      gsap.to('footer', {
+        duration: 0.5,
+        opacity: 0,
+        y: 30,
+        ease: 'power4.out',
+        stagger: {
+          amount: 0.3,
+        },
+      });
+    }
+  }, [intersection]);
 
   return (
     <StyledFooter ref={footerRef}>
