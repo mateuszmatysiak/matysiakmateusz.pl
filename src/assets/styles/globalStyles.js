@@ -4,7 +4,7 @@ const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
     font-size: 10px;
-    font-family: "Gothic A1";
+    font-family: "Gothic A1", Arial, Helvetica, sans-serif;
   }
   *,
   *::before,

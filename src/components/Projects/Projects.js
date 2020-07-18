@@ -52,7 +52,7 @@ const StyledProjectTag = styled.p`
   margin-right: 10px;
 `;
 
-const StyledProjectTitle = styled.h3`
+const StyledProjectTitle = styled.h2`
   font-size: 2.4rem;
   font-weight: 500;
   margin: 15px 0;
@@ -104,14 +104,14 @@ const Projects = (data) => (
           <StyledProjectTitle>{title}</StyledProjectTitle>
           <StyledProjectDescription>{description}</StyledProjectDescription>
           <StyledLinkWrapper>
-            <StyledLinkItem href={hrefGithub} target="_blank">
+            <StyledLinkItem href={hrefGithub} target="_blank" rel="noopener" rel="noreferrer">
               <StyledLinkSpan>Github</StyledLinkSpan>
               <Icon StyledIcon={StyledLinkIcon}>
                 <OpenIcon />
               </Icon>
             </StyledLinkItem>
             {hrefLive ? (
-              <StyledLinkItem href={hrefLive} target="_blank">
+              <StyledLinkItem href={hrefLive} target="_blank" rel="noopener" rel="noreferrer">
                 <StyledLinkSpan>Live</StyledLinkSpan>
                 <Icon StyledIcon={StyledLinkIcon}>
                   <OpenIcon />

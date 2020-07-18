@@ -32,7 +32,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Gothic A1:400,500,700:latin,greek', 'Arial'],
+          families: ['Gothic A1:400,500,700'],
         },
       },
     },

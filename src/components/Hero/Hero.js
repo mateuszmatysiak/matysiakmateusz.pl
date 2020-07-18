@@ -129,11 +129,21 @@ const Hero = ({ childImageSharp: { fluid } }) => {
       <StyledH1>Witaj, jestem Mateusz Matysiak.</StyledH1>
       <StyledParagraph>
         Jestem studentem III roku Informatyki Stosowanej na{' '}
-        <StyledParagraphLink href="https://www.utp.edu.pl/pl/" target="_blank">
+        <StyledParagraphLink
+          href="https://www.utp.edu.pl/pl/"
+          target="_blank"
+          rel="noopener"
+          rel="noreferrer"
+        >
           Uniwersytecie Technologiczno-Przyrodniczym w Bydgoszczy
         </StyledParagraphLink>
         . Obecnie pracuję jako programista, tworząc oprogramowanie dla UTP w frameworku{' '}
-        <StyledParagraphLink href="https://reactjs.org/" target="_blank">
+        <StyledParagraphLink
+          href="https://reactjs.org/"
+          target="_blank"
+          rel="noopener"
+          rel="noreferrer"
+        >
           React
         </StyledParagraphLink>
         . Poza pracą tworzę projekty, w których wykorzystuję wiedzę z szeroko pojętego ekosystemu
@@ -148,7 +158,12 @@ const Hero = ({ childImageSharp: { fluid } }) => {
       <StyledSocialContainer>
         <StyledSocialWrapper>
           <StyledSocialImg fluid={fluid} alt="profile" />
-          <StyledSocialItem href="https://www.linkedin.com/in/mateusz-matysiak/" target="_blank">
+          <StyledSocialItem
+            href="https://www.linkedin.com/in/mateusz-matysiak/"
+            target="_blank"
+            rel="noopener"
+            rel="noreferrer"
+          >
             <Icon StyledIcon={StyledIcon}>
               <LinkedinIcon />
             </Icon>
@@ -157,7 +172,12 @@ const Hero = ({ childImageSharp: { fluid } }) => {
               <OpenIcon />
             </Icon>
           </StyledSocialItem>
-          <StyledSocialItem href="https://github.com/mateuszmatysiak" target="_blank">
+          <StyledSocialItem
+            href="https://github.com/mateuszmatysiak"
+            target="_blank"
+            rel="noopener"
+            rel="noreferrer"
+          >
             <Icon StyledIcon={StyledIcon}>
               <GithubIcon />
             </Icon>

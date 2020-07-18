@@ -36,6 +36,7 @@ const SEO = (post) => {
 
   return (
     <Helmet>
+      <html lang="pl" />
       <title>{basicTitle}</title>
       <link rel="canonical" href={url} />
       <meta name="description" content={description} />

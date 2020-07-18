@@ -45,7 +45,12 @@ const Footer = () => {
     <StyledFooter ref={footerRef}>
       <StyledFooterParagraph>
         Strona stworzona w{' '}
-        <StyledFooterParagraphLink href="https://www.gatsbyjs.org/" target="_blank">
+        <StyledFooterParagraphLink
+          href="https://www.gatsbyjs.org/"
+          target="_blank"
+          rel="noopener"
+          rel="noreferrer"
+        >
           Gatsby
         </StyledFooterParagraphLink>
         .

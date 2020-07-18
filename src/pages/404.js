@@ -77,13 +77,19 @@ const NotFoundPage = () => (
     <StyledContainer>
       <StyledTitle>Strona nie znaleziona</StyledTitle>
       <StyledDescription>Uuups! Strona, której szukasz nie istnieje.</StyledDescription>
-      <StyledButton href="/">Wróć</StyledButton>
+      <StyledButton href="https://www.matysiakmateusz.pl" rel="noopener" rel="noreferrer">
+        Wróć
+      </StyledButton>
     </StyledContainer>
     <StyledHR />
     <StyledFooter>
-      <StyledFooterItem href="/">Mateusz Matysiak</StyledFooterItem>
+      <StyledFooterItem href="https://www.matysiakmateusz.pl" rel="noopener" rel="noreferrer">
+        Mateusz Matysiak
+      </StyledFooterItem>
       <StyledFooterSpan />
-      <StyledFooterItem href="https://www.gatsbyjs.org/">Gatsbyjs.com</StyledFooterItem>
+      <StyledFooterItem href="https://www.gatsbyjs.org/" rel="noopener" rel="noreferrer">
+        Gatsbyjs.com
+      </StyledFooterItem>
     </StyledFooter>
   </StyledNotFoundPage>
 );
