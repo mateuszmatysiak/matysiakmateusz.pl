@@ -80,8 +80,7 @@ const Contact = (data) => {
             href={`${getAction(name)}${value}`}
             title={getTooltipMessage(name)}
             target="_blank"
-            rel="noopener"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             <StyledContactTitle>{name}</StyledContactTitle>
             <StyledContactSubtitle>{value}</StyledContactSubtitle>

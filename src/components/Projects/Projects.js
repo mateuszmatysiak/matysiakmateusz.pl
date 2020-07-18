@@ -104,14 +104,14 @@ const Projects = (data) => (
           <StyledProjectTitle>{title}</StyledProjectTitle>
           <StyledProjectDescription>{description}</StyledProjectDescription>
           <StyledLinkWrapper>
-            <StyledLinkItem href={hrefGithub} target="_blank" rel="noopener" rel="noreferrer">
+            <StyledLinkItem href={hrefGithub} target="_blank" rel="noopener noreferrer">
               <StyledLinkSpan>Github</StyledLinkSpan>
               <Icon StyledIcon={StyledLinkIcon}>
                 <OpenIcon />
               </Icon>
             </StyledLinkItem>
             {hrefLive ? (
-              <StyledLinkItem href={hrefLive} target="_blank" rel="noopener" rel="noreferrer">
+              <StyledLinkItem href={hrefLive} target="_blank" rel="noopener noreferrer">
                 <StyledLinkSpan>Live</StyledLinkSpan>
                 <Icon StyledIcon={StyledLinkIcon}>
                   <OpenIcon />

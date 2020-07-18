@@ -99,6 +99,8 @@ const StyledIcon = styled.span`
   ${({ mobile }) =>
     mobile &&
     css`
+      width: 25px;
+      height: 25px;
       margin-top: 16px;
     `}
   &,
@@ -132,18 +134,12 @@ const Hero = ({ childImageSharp: { fluid } }) => {
         <StyledParagraphLink
           href="https://www.utp.edu.pl/pl/"
           target="_blank"
-          rel="noopener"
-          rel="noreferrer"
+          rel="noopener noreferrer"
         >
           Uniwersytecie Technologiczno-Przyrodniczym w Bydgoszczy
         </StyledParagraphLink>
         . Obecnie pracuję jako programista, tworząc oprogramowanie dla UTP w frameworku{' '}
-        <StyledParagraphLink
-          href="https://reactjs.org/"
-          target="_blank"
-          rel="noopener"
-          rel="noreferrer"
-        >
+        <StyledParagraphLink href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">
           React
         </StyledParagraphLink>
         . Poza pracą tworzę projekty, w których wykorzystuję wiedzę z szeroko pojętego ekosystemu
@@ -161,8 +157,7 @@ const Hero = ({ childImageSharp: { fluid } }) => {
           <StyledSocialItem
             href="https://www.linkedin.com/in/mateusz-matysiak/"
             target="_blank"
-            rel="noopener"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             <Icon StyledIcon={StyledIcon}>
               <LinkedinIcon />
@@ -175,8 +170,7 @@ const Hero = ({ childImageSharp: { fluid } }) => {
           <StyledSocialItem
             href="https://github.com/mateuszmatysiak"
             target="_blank"
-            rel="noopener"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             <Icon StyledIcon={StyledIcon}>
               <GithubIcon />

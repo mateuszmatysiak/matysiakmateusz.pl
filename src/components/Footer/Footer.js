@@ -4,15 +4,13 @@ import { useIntersection } from 'react-use';
 import gsap from 'gsap';
 
 const StyledFooter = styled.footer`
+  display: flex;
   margin-top: 50px;
-`;
-
-const StyledFooterParagraph = styled.p`
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: ${({ theme }) => theme.palette.secondary};
 `;
 
-const StyledFooterParagraphLink = styled.a`
+const StyledFooterLink = styled.a`
   color: ${({ theme }) => theme.palette.primary};
   text-decoration: underline;
 `;
@@ -43,18 +41,16 @@ const Footer = () => {
 
   return (
     <StyledFooter ref={footerRef}>
-      <StyledFooterParagraph>
-        Strona stworzona w{' '}
-        <StyledFooterParagraphLink
+      <p>Strona stworzona w&nbsp;</p>
+      <p>
+        <StyledFooterLink
           href="https://www.gatsbyjs.org/"
           target="_blank"
-          rel="noopener"
-          rel="noreferrer"
+          rel="noopener noreferrer"
         >
-          Gatsby
-        </StyledFooterParagraphLink>
-        .
-      </StyledFooterParagraph>
+          Gatsby.
+        </StyledFooterLink>
+      </p>
     </StyledFooter>
   );
 };
