@@ -51,11 +51,6 @@ const StyledParagraph = styled.p`
   `}
 `;
 
-const StyledParagraphLink = styled.a`
-  color: ${({ theme }) => theme.palette.primary};
-  text-decoration: underline;
-`;
-
 const StyledSocialContainer = styled.div`
   display: flex;
   margin-top: 30px;
@@ -130,20 +125,8 @@ const Hero = ({ childImageSharp: { fluid } }) => {
     <StyledHeroWrapper>
       <StyledH1>Witaj, jestem Mateusz Matysiak.</StyledH1>
       <StyledParagraph>
-        Jestem studentem III roku Informatyki Stosowanej na{' '}
-        <StyledParagraphLink
-          href="https://www.utp.edu.pl/pl/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Uniwersytecie Technologiczno-Przyrodniczym w Bydgoszczy
-        </StyledParagraphLink>
-        . Obecnie pracuję jako programista, tworząc oprogramowanie dla UTP w frameworku{' '}
-        <StyledParagraphLink href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">
-          React
-        </StyledParagraphLink>
-        . Poza pracą tworzę projekty, w których wykorzystuję wiedzę z szeroko pojętego ekosystemu
-        front-endu.
+        Moim głównym celem jest rozwijanie swoich umiejętności potrzebnych do programowania warstw
+        front-end portali oraz aplikacji z zastosowaniem najnowszych technologii.
       </StyledParagraph>
       <Navigation />
       {mobile && (
